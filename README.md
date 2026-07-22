@@ -7,7 +7,7 @@ A 100% front-end version of the **Student Management System** that runs directly
 ## ⚡ How to Run Immediately
 
 1. Open your File Explorer and navigate to:
-   `C:\Users\rohan\.gemini\antigravity\scratch\student-management-system-frontend`
+   `C:\Users\rohan\student-management-system-frontend`
 
 2. **Double click `index.html`** to open it directly in Google Chrome, Microsoft Edge, or Firefox!
 
