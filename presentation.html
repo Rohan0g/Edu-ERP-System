@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu ERP System - Internship Presentation Slides</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .slide-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .slide-card {
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 1100px;
+            padding: 50px;
+            position: relative;
+            backdrop-filter: blur(16px);
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: rgba(79, 70, 229, 0.2);
+            color: #818cf8;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tech-badge {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #38bdf8;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .table-custom {
+            background: #0f172a;
+            color: #f8fafc;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table-custom th {
+            background: #1e293b;
+            color: #94a3b8;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .table-custom td {
+            border-color: #1e293b;
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navigation Controls -->
+    <div class="nav-buttons">
+        <button onclick="prevSlide()" class="btn btn-outline-light rounded-circle p-3"><i class="bi bi-chevron-left"></i></button>
+        <button onclick="nextSlide()" class="btn btn-primary rounded-circle p-3"><i class="bi bi-chevron-right"></i></button>
+    </div>
+
+    <!-- Slide 1: Title Slide -->
+    <div class="slide-container" id="slide1">
+        <div class="slide-card text-center py-5">
+            <span class="slide-number">Slide 1 of 8</span>
+            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px; font-size: 2.5rem;">
+                <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <h1 class="display-4 fw-extrabold gradient-text mb-3">Edu ERP System</h1>
+            <p class="fs-4 text-white-50 mb-5">Student Management & Academic Portal</p>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8 p-4 rounded-4 bg-dark border border-secondary">
+                    <div class="row text-start g-3">
+                        <div class="col-6"><strong class="text-muted">Student Name:</strong> <div class="fs-5 text-info fw-bold">ROHAN PATTNAIK</div></div>
+                        <div class="col-6"><strong class="text-muted">Roll Number:</strong> <div class="fs-5 text-warning fw-bold">25MCA016</div></div>
+                        <div class="col-6"><strong class="text-muted">Degree:</strong> <div class="fs-6 text-light">MCA (Master of Computer Applications)</div></div>
+                        <div class="col-6"><strong class="text-muted">Institution:</strong> <div class="fs-6 text-light">GIET University</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Project Overview & Objectives -->
+    <div class="slide-container d-none" id="slide2">
+        <div class="slide-card">
+            <span class="slide-number">Slide 2 of 8</span>
+            <h2 class="fw-bold gradient-text mb-4"><i class="bi bi-bullseye me-2"></i>Project Overview & Objectives</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="p-4 rounded-4 bg-dark h-100 border border-secondary">
+                        <h4 class="text-info fw-bold mb-3"><i class="bi bi-exclamation-circle me-2"></i>Problem Statement</h4>
+                        <p class="text-white-50">Educational institutions require an integrated, responsive ERP platform to track student admissions, academic CGPA analytics (10.0 scale), and departmental statistics without manual paperwork.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 rounded-4 bg-dark h-100 border border-secondary">
+                        <h4 class="text-success fw-bold mb-3"><i class="bi bi-check-circle me-2"></i>Core Objectives</h4>
+                        <ul class="text-white-50 lh-lg mb-0">
+                            <li>Secure Administrator Authentication & Session Security.</li>
+                            <li>Real-Time Academic Dashboard (Total, Avg/Max CGPA).</li>
+                            <li>Full CRUD Operations (Create, Read, Update, Delete).</li>
+                            <li>Multi-Keyword Live Search Filtering.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Tech Stack & Architecture -->
+    <div class="slide-container d-none" id="slide3">
+        <div class="slide-card">
+            <span class="slide-number">Slide 3 of 8</span>
+            <h2 class="fw-bold gradient-text mb-4"><i class="bi bi-cpu me-2"></i>Technology Stack & MVC Architecture</h2>
+            
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="p-3 rounded-3 bg-dark border border-primary text-center">
+                        <h5 class="text-primary fw-bold">Front-End</h5>
+                        <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">Bootstrap 5</span>
+                            <span class="tech-badge">JavaScript ES6</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 rounded-3 bg-dark border border-info text-center">
+                        <h5 class="text-info fw-bold">Back-End</h5>
+                        <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                            <span class="tech-badge">Java 17</span>
+                            <span class="tech-badge">Java Servlets</span>
+                            <span class="tech-badge">JSP 2.3</span>
+                            <span class="tech-badge">JSTL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 rounded-3 bg-dark border border-warning text-center">
+                        <h5 class="text-warning fw-bold">Data & Persistence</h5>
+                        <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                            <span class="tech-badge">JDBC API</span>
+                            <span class="tech-badge">MySQL 8.0</span>
+                            <span class="tech-badge">LocalStorage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 rounded-3 bg-dark text-center border border-secondary">
+                <span class="badge bg-indigo px-3 py-2 fs-6">Architecture Pattern: Model-View-Controller (MVC)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: System Workflow Diagram -->
+    <div class="slide-container d-none" id="slide4">
+        <div class="slide-card text-center">
+            <span class="slide-number">Slide 4 of 8</span>
+            <h2 class="fw-bold gradient-text mb-3"><i class="bi bi-diagram-3 me-2"></i>System Workflow Diagram</h2>
+            <img src="../system_workflow_diagram.jpg" class="img-fluid rounded-4 shadow border border-secondary" style="max-height: 450px;" alt="Workflow Diagram">
+        </div>
+    </div>
+
+    <!-- Slide 5: Database Schema & MySQL Screenshot -->
+    <div class="slide-container d-none" id="slide5">
+        <div class="slide-card text-center">
+            <span class="slide-number">Slide 5 of 8</span>
+            <h2 class="fw-bold gradient-text mb-3"><i class="bi bi-database me-2"></i>Database Schema & MySQL Workbench</h2>
+            <img src="../../brain/4f4d6fb8-20b6-42bd-b7e6-f861e89f9a67/mysql_database_giet_screenshot_1784747140632.jpg" class="img-fluid rounded-4 shadow border border-secondary" style="max-height: 450px;" alt="Database Screenshot">
+        </div>
+    </div>
+
+    <!-- Slide 6: Enrolled Students Data -->
+    <div class="slide-container d-none" id="slide6">
+        <div class="slide-card">
+            <span class="slide-number">Slide 6 of 8</span>
+            <h2 class="fw-bold gradient-text mb-4"><i class="bi bi-people-fill me-2"></i>Enrolled Student Directory</h2>
+            
+            <div class="table-responsive">
+                <table class="table table-custom align-middle">
+                    <thead>
+                        <tr>
+                            <th>Roll ID</th>
+                            <th>Student Name</th>
+                            <th>Email Address</th>
+                            <th>Department</th>
+                            <th>Course</th>
+                            <th>CGPA (Scale 10)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge bg-primary">25MCA016</span></td>
+                            <td class="fw-bold text-info">ROHAN PATTNAIK</td>
+                            <td>25mca016.rohanpattnaik@giet.edu</td>
+                            <td>Computer Science</td>
+                            <td>MCA</td>
+                            <td><span class="badge bg-warning text-dark">7.77 / 10.0</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-primary">25MCA017</span></td>
+                            <td class="fw-bold text-info">ADITYA PRASAD PATTNAYAK</td>
+                            <td>25mca017.adityaprasadpattnayak@giet.edu</td>
+                            <td>Computer Science</td>
+                            <td>MCA</td>
+                            <td><span class="badge bg-success">9.82 / 10.0</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-primary">25MCA015</span></td>
+                            <td class="fw-bold text-info">KARTIK SAHOO</td>
+                            <td>KARTIK@GMAIL.COM</td>
+                            <td>Computer Science</td>
+                            <td>MCA</td>
+                            <td><span class="badge bg-success">8.65 / 10.0</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Live Web Demonstration -->
+    <div class="slide-container d-none" id="slide7">
+        <div class="slide-card text-center py-5">
+            <span class="slide-number">Slide 7 of 8</span>
+            <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px; font-size: 2.5rem;">
+                <i class="bi bi-play-btn-fill"></i>
+            </div>
+            <h2 class="display-5 fw-bold gradient-text mb-3">Live Application Demonstration</h2>
+            <p class="fs-5 text-white-50 mb-4">Click below to demonstrate the live interactive dashboard and student CRUD features.</p>
+            
+            <a href="index.html" target="_blank" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow">
+                <i class="bi bi-box-arrow-up-right me-2"></i> Launch Live Application
+            </a>
+        </div>
+    </div>
+
+    <!-- Slide 8: Conclusion & Thank You -->
+    <div class="slide-container d-none" id="slide8">
+        <div class="slide-card text-center py-5">
+            <span class="slide-number">Slide 8 of 8</span>
+            <h1 class="display-4 fw-extrabold gradient-text mb-3">Thank You!</h1>
+            <p class="fs-4 text-white-50 mb-4">Questions & Answers Session</p>
+            
+            <div class="p-4 rounded-4 bg-dark d-inline-block border border-secondary text-start">
+                <div class="fw-bold text-light">Developer: ROHAN PATTNAIK</div>
+                <div class="text-muted">Roll No: 25MCA016 | GIET University</div>
+                <div class="text-info">GitHub: https://github.com/Rohan0g/Edu-ERP-System</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for Slide Navigation -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        function showSlide(index) {
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById(`slide${i}`).classList.add('d-none');
+            }
+            document.getElementById(`slide${index}`).classList.remove('d-none');
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
