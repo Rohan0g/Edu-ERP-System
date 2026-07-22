@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Edu ERP System</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+                <i class="bi bi-mortarboard-fill text-info me-2 fs-3"></i>
+                <span>Edu ERP System</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto ms-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link active px-3" href="dashboard.html">
+                            <i class="bi bi-speedometer2 me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="students.html">
+                            <i class="bi bi-people-fill me-1"></i> View Students
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="student-form.html">
+                            <i class="bi bi-person-plus-fill me-1"></i> Add Student
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center text-white">
+                    <div class="me-3 text-end d-none d-sm-block">
+                        <div class="fw-bold" id="userName">Administrator</div>
+                        <small class="text-info">ADMIN</small>
+                    </div>
+                    <button onclick="logout()" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                        <i class="bi bi-box-arrow-right me-1"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container main-content my-4">
+
+        <!-- Welcome Banner -->
+        <div class="p-4 mb-4 rounded-4 text-white shadow-sm" style="background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold mb-1">Welcome to Edu ERP System! 👋</h2>
+                    <p class="mb-0 text-white-50">Here is the real-time academic overview of your enrolled students with 10.0 CGPA grading scale.</p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <a href="student-form.html" class="btn btn-light text-primary fw-bold rounded-pill px-4 shadow-sm">
+                        <i class="bi bi-plus-lg me-1"></i> Add New Student
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Cards -->
+        <div class="row g-4 mb-4">
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card stat-card p-3 h-100">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted text-uppercase small fw-bold">Total Enrolled</span>
+                            <h3 class="fw-bold my-1 text-dark" id="statTotal">0</h3>
+                            <span class="text-success small fw-semibold"><i class="bi bi-graph-up-arrow"></i> Active Records</span>
+                        </div>
+                        <div class="icon-box bg-primary-subtle text-primary">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card stat-card p-3 h-100">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted text-uppercase small fw-bold">Average CGPA</span>
+                            <h3 class="fw-bold my-1 text-dark" id="statAvgGpa">0.00 <span class="fs-6 text-muted">/ 10.0</span></h3>
+                            <span class="text-info small fw-semibold"><i class="bi bi-award"></i> System Mean</span>
+                        </div>
+                        <div class="icon-box bg-info-subtle text-info">
+                            <i class="bi bi-bar-chart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card stat-card p-3 h-100">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted text-uppercase small fw-bold">Highest CGPA</span>
+                            <h3 class="fw-bold my-1 text-dark" id="statMaxGpa">0.00 <span class="fs-6 text-muted">/ 10.0</span></h3>
+                            <span class="text-success small fw-semibold"><i class="bi bi-trophy"></i> Top Performer</span>
+                        </div>
+                        <div class="icon-box bg-success-subtle text-success">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card stat-card p-3 h-100">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted text-uppercase small fw-bold">Departments</span>
+                            <h3 class="fw-bold my-1 text-dark" id="statDepts">0</h3>
+                            <span class="text-warning small fw-semibold"><i class="bi bi-building"></i> Academic Units</span>
+                        </div>
+                        <div class="icon-box bg-warning-subtle text-warning">
+                            <i class="bi bi-journal-bookmark-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Recent Enrollments & Department Breakdown -->
+        <div class="row g-4">
+
+            <div class="col-lg-8">
+                <div class="card custom-table-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <h5 class="fw-bold text-dark mb-0">Recent Enrollments</h5>
+                            <small class="text-muted">Latest student additions</small>
+                        </div>
+                        <a href="students.html" class="btn btn-outline-primary btn-sm rounded-pill">
+                            View All <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Student Name</th>
+                                    <th>Department</th>
+                                    <th>CGPA</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentTableBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card custom-table-card p-4 h-100">
+                    <h5 class="fw-bold text-dark mb-3">Department Share</h5>
+                    <div class="list-group list-group-flush" id="deptList">
+                        <!-- Populated dynamically -->
+                    </div>
+
+                    <div class="mt-4 p-3 bg-light rounded-3 border">
+                        <h6 class="fw-bold text-dark mb-2"><i class="bi bi-cpu-fill text-info me-1"></i> Architecture Stack</h6>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="badge bg-dark">Edu ERP Core</span>
+                            <span class="badge bg-secondary">HTML5 / CSS3</span>
+                            <span class="badge bg-primary">JavaScript ES6</span>
+                            <span class="badge bg-info text-dark">Bootstrap 5</span>
+                            <span class="badge bg-success">10 Point CGPA Scale</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">Edu ERP System &bull; Created for Internship Presentation</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            renderDashboard();
+        });
+
+        function renderDashboard() {
+            const students = getStudents();
+            
+            document.getElementById('statTotal').innerText = students.length;
+            
+            if (students.length > 0) {
+                const totalGpa = students.reduce((acc, s) => acc + parseFloat(s.gpa), 0);
+                const avgGpa = (totalGpa / students.length).toFixed(2);
+                const maxGpa = Math.max(...students.map(s => parseFloat(s.gpa))).toFixed(2);
+                
+                document.getElementById('statAvgGpa').innerHTML = `${avgGpa} <span class="fs-6 text-muted">/ 10.0</span>`;
+                document.getElementById('statMaxGpa').innerHTML = `${maxGpa} <span class="fs-6 text-muted">/ 10.0</span>`;
+            }
+
+            const depts = {};
+            students.forEach(s => {
+                depts[s.department] = (depts[s.department] || 0) + 1;
+            });
+            document.getElementById('statDepts').innerText = Object.keys(depts).length;
+
+            const deptListHtml = Object.keys(depts).map(d => `
+                <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 border-bottom">
+                    <div>
+                        <i class="bi bi-folder2-open text-primary me-2"></i>
+                        <span class="fw-medium">${d}</span>
+                    </div>
+                    <span class="badge bg-primary rounded-pill px-3 py-2">${depts[d]} Students</span>
+                </div>
+            `).join('');
+            document.getElementById('deptList').innerHTML = deptListHtml || '<div class="text-muted">No records</div>';
+
+            const recent = students.slice(0, 5);
+            const recentHtml = recent.map(s => `
+                <tr>
+                    <td class="fw-bold text-primary">${s.code}</td>
+                    <td>
+                        <div class="fw-semibold">${s.firstName} ${s.lastName}</div>
+                        <small class="text-muted">${s.email}</small>
+                    </td>
+                    <td><span class="badge badge-dept">${s.department}</span></td>
+                    <td>
+                        <span class="badge ${s.gpa >= 9.0 ? 'badge-gpa-high' : 'badge-gpa-mid'} px-2 py-1">${s.gpa}</span>
+                    </td>
+                    <td>
+                        <a href="student-form.html?id=${s.id}" class="btn btn-sm btn-light text-primary">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </td>
+                </tr>
+            `).join('');
+            document.getElementById('recentTableBody').innerHTML = recentHtml || '<tr><td colspan="5" class="text-center">No students found</td></tr>';
+        }
+    </script>
+</body>
+</html>
